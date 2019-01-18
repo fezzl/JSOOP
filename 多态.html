@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // function demo(a,b){
+        //     console.log(demo.length);
+        //     console.log(arguments.length);
+        //     console.log(arguments[0]);
+        //     console.log(arguments[1]);
+        // }
+        // demo(4,5,6);
+
+        // function add(){
+        //     let total=0;
+        //     for(let i=0;i<arguments.length;i++){
+        //         total+=arguments[i];
+        //     }
+        //     return total;
+        // }
+        // console.log(add(1));
+        // console.log(add(1,2));
+
+        // function demo(o){
+        //     o.run();
+        // }
+        // var o={
+        //     run:function(){
+        //         console.log('o is running');
+        //     }
+        // };
+        // demo(o);
+        // var p={
+        //     run:function(){
+        //         console.log('p is running');
+        //     }
+        // };
+        // demo(p);
+
+        // function Parent(){
+        //     this.run=function(){
+        //         console.log('parent is running');
+        //     }
+        // }
+        // function Child(){
+        //     Parent.apply(this);
+        //     var parentRun=this.run;
+        //     this.run=function(){
+        //         console.log('child is running');
+        //         parentRun();
+        //     }
+        // }
+        // var c=new Child();
+        // c.run();
+            
+        function Parent(){
+
+        }
+        Parent.prototype.run=function(){
+            let a='zzl';
+            console.log(`${a} parent `);
+        }
+        Child.prototype=Object.create(Parent.prototype);
+        Child.prototype.constructor=Child;
+        Child.super=Parent.prototype;
+        function Child(){
+         
+        }
+        Child.prototype.run=function(){
+            console.log('child is running');
+            Child.super.run();
+        }
+        var c=new Child();
+        c.run();
+
+        // var parent = {
+        //     foo() {
+        //         console.log("Hello from the Parent");
+        //     }
+        // }
+
+        // var child = {
+        //     foo() {
+        //         super.foo();
+        //         console.log("Hello from the Child");
+        //     }
+        // }
+
+        // Object.setPrototypeOf(child, parent);//将child的原型指向parent
+        
+        // child.foo(); // Hello from the Parent
+        //             // Hello from the Child
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // function Person(pname){
+    //     var age=22;
+    //     function pm(){
+    //         console.log(this.name);
+    //     }
+    //     this.name=pname;
+    //     this.test=function(){
+    //         pm.apply(this);
+    //     }
+    // }
+
+    function Person(pname){
+        
+        function pm(){
+            console.log(self.name);
+        }
+        var self={
+            name:pname,
+            test:function(){
+                pm();
+            }
+        };
+        return self;
+    }
+</script>
+</html>

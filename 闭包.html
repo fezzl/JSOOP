@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>text</title>
+    <script>
+        
+        // function a(){
+        //     var a=10;
+        //     var b=20;
+        //     return function g(){
+        //             console.log(a);
+        //         }
+            
+        // }
+        // var result=a();
+        // result();
+
+        // function f(){
+        //     var a=0;
+        //     return function add(){
+        //         a++;
+        //         alert(a);
+        //     }
+        //     add();
+        // }
+        // var result=f();
+        // result();
+        // result();
+
+        // function a(base){
+        //    var total=0;
+        //    return function cal(max){
+        //        for(var i=1;i<=max;i++){
+        //            total+=i;
+        //        }
+        //        return total+base;
+        //    }
+        // }
+        // var result=a(2);
+        // alert(result(3));
+
+        // (function a(){
+        //     var m=0;
+        //     function getM(){
+        //         return m;
+        //     }
+        //     function setM(val){
+        //         m=val;
+        //     }
+        //     window.s=setM;
+        //     window.g=getM;
+        // })();
+        // s(2);
+        // alert(g());
+        
+        window.onload=function(){
+          for(var i=1;i<=3;i++){
+              
+              var ele=document.getElementById(i);
+              ele.onclick=(function(id){
+                  return function (){
+                  alert(id);
+              }
+              
+            })(i); 
+          }  
+          
+        }
+    </script>
+</head>
+<body>
+    <div id="1">1</div>
+    <div id="2">2</div>
+    <div id="3">3</div>
+</body>
+</html>

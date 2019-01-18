@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // var p={name:'cj'};
+        // function myCreat(p){
+        //   function F(){};
+        //   F.prototype=p;
+        //   var f=new F();
+        //   return f;
+        // }
+        
+        // function P(){
+
+        // }
+        // function C(){
+
+        // }
+        // C.prototype=Object.create(P.prototype);
+
+        function Person(name,age){
+            this.name=name;
+            this.age=age;
+        }
+        Person.prototype.headCount=1;
+        Person.prototype.eat=function(){
+            console.log('eating....');
+        }
+
+        function Programer(name,age,title){
+            Person.apply(this,arguments);
+        }
+        // Programer.prototype=Object.create(Person.prototype);
+        // Programer.prototype.constructor=Programer;
+        createEx(Programer,Person);
+
+        Programer.prototype.language='javascript';
+        Programer.prototype.work=function(){
+            console.log('i am writing in '+this.language);
+            Programer.base.eat();
+        }
+
+        function createEx(Child,Parent){
+            function F(){};
+            F.prototype=Parent.prototype;
+            Child.prototype=new F();
+            Child.prototype.constructor=Child;
+            Child.super=Child.base=Parent.prototype;
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
